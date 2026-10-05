@@ -56,13 +56,13 @@ In dieser Laborumgebung werden die Windows-11- und Kali-Linux-VM als Datenquelle
 Auf diesen beiden Screenshots ist zu sehen, dass der Agent als lokaler Service auf den Systemen installiert wurde.
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Wazuh_Agent_Kali_Bild2.png" width="60%">
+  <img src="SIEM-Wazuh/images/Wazuh_Agent_Kali_Bild2.1.png" width="60%">
   <br>
   <em>Wazuh Agent auf Kali</em>
 </p>
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Wazuh_Agent_Windows_Bild3.png" width="60%">
+  <img src="SIEM-Wazuh/images/Wazuh_Agent_Windows_Bild3.1.png" width="60%">
   <br>
   <em>Wazuh Agent auf Windows</em>
 </p>
@@ -70,7 +70,7 @@ Auf diesen beiden Screenshots ist zu sehen, dass der Agent als lokaler Service a
 Im Wazuh Dashboard werden die beiden Agents bzw. Systeme, die mit dem Manager verbunden sind angezeigt:
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Agents_Wazuh_Dashboard_Bild4.png" width="60%">
+  <img src="SIEM-Wazuh/images/Agents_Wazuh_Dashboard_Bild4.1.png" width="60%">
   <br>
   <em>Agents in Wazuh Dashboard</em>
 </p>
