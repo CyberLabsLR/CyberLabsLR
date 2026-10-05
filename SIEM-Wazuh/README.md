@@ -93,7 +93,7 @@ Zur Überprüfung der Log-Sammlung wurde bewusst ein falsches Passwort bei der A
 Der Wazuh Agent erfasst dieses Ereignis und überträgt es an den Wazuh Manager. Im Wazuh Dashboard kann das Event anschliessend analysiert werden:
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Failed_Win_Logon1_Bild6.png" width="60%">
+  <img src="SIEM-Wazuh/images/Failed_Win_Logon1_Bild6.1.png" width="60%">
   <br>
   <em>Failed Windows Logon 1/2</em>
 </p>
@@ -108,7 +108,7 @@ Der Wazuh Agent erfasst dieses Ereignis und überträgt es an den Wazuh Manager.
 Auf der Kali VM wurde ebenfalls ein fehlgeschlagener Authentifizierungsversuch erzeugt. Das Ereignis wurde über das systemd Journal erfasst und durch den Wazuh Agent an den Manager übertragen. Im Dashboard sieht dies wie folgt aus:
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Failed_Linux_Logon_Bild8.png" width="60%">
+  <img src="SIEM-Wazuh/images/Failed_Linux_Logon_Bild8.1.png" width="60%">
   <br>
   <em>Failed Linux Logon</em>
 </p>
@@ -174,7 +174,7 @@ Um die Korrelationsregel zu testen, wurden zwei Testevents auf der Kali-VM erste
 Beide Events wurden vom Wazuh Agent erfasst und durch die jeweiligen Regeln erkannt. Dadurch entstanden zunächst zwei einzelne Alerts. Da beide Events innerhalb des definierten Zeitfensters aufgetreten sind, wurde zusätzlich die Korrelationsregel ausgelöst. Der daraus erzeugte Alert besitzt einen höheren Schweregrad und signalisiert, dass mehrere zusammengehörige Ereignisse innerhalb kurzer Zeit aufgetreten sind. 
 
 <p align="center">
-  <img src="SIEM-Wazuh/images/Korrelationsevent_Dashboard_Bild14.png" width="60%">
+  <img src="SIEM-Wazuh/images/Korrelationsevent_Dashboard_Bild14.1.png" width="60%">
   <br>
   <em>Korrelationsevent in Wazuh</em>
 </p>
