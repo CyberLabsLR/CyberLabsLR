@@ -12,3 +12,6 @@ Dieses Repository dient dazu, meine Projekte zu dokumentieren.
 
 ### SIEM (Security Information and Event Management)
 [SIEM Lab mit Wazuh](./SIEM-Wazuh)
+
+### Microsoft Azure Cloud
+[Microsoft Azure Cloud](./Microsoft-Azure-Cloud/)
