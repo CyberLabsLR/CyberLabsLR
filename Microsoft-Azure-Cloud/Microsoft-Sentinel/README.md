@@ -4,6 +4,8 @@
    - [Log Analytics Workspace erstellen](#log-analytics-workspace-erstellen)
    - [LAW zu Sentinel hinzufügen](#law-zu-sentinel-hinzufügen)
 2. [Ingest Data](#ingest-data)
+   - [Content Hub Lösungen installieren](#content-hub-lösungen-installieren)
+   - [Data Connectors verbinden und konfigurieren](#data-connectors-verbinden-und-konfigurieren)
 3. [Detect](#detect)
 4. [Investigate](#investigate)
 5. [Fazit](#fazit)
@@ -36,6 +38,41 @@ Den gerade erstellen LAW auswählen und auf "Add" klicken. Anschliessend wird un
 Damit wurde die Grundlage für den Einsatz von Microsoft Sentinel geschaffen. Durch die Verknüpfung des Log Analytics Workspace mit Sentinel können zukünftig Sicherheitsdaten zentral gesammelt, analysiert und überwacht werden. Im nächsten Schritt müssen entsprechende Datenquellen (Dataconnectors) angebunden werden, damit Sentinel sicherheitsrelevante Ereignisse erfassen und mögliche Bedrohungen erkennen kann.
 
 ## Ingest Data
+Data Connectors dienen dazu, verschiedene Datenquellen wie Microsoft Defender, Firewalls oder Cloud-Dienste mit Microsoft Sentinel zu verbinden und deren Logdaten zu sammeln. Über den Content Hub können passende Data Connectors und weitere Sicherheitslösungen installiert werden, damit Sentinel die gesammelten Daten analysieren und mögliche Bedrohungen erkennen kann.
+
+### Content Hub Lösungen installieren
+Im Content Hub von Sentinel können verschiedene Sicherheitslösungen und Data Connectors installiert werden. In diesem Lab wird "Microsoft Entra ID" ausgewählt. Damit wir die Anbindung zu Entra ID ermöglicht und damit zu Identitäts- und Anmeldeprotokollen. Damit können beispielsweise Anmeldeaktivitäten überwacht und verdächtige Anmeldeversuche erkannt werden. 
+
+<p align="center">
+  <img src="images/IngestData_ConnectorsHub_03.png" width="60%">
+  <br>
+  <em>Connectors Hub</em>
+</p>
+
+Damit wurden insgesamt 89 Komponenten installiert, darunter 1 Data Connector, 74 Analytics Rules, 11 Playbooks und 3 Workbooks. Diese ermöglichen es, Security-Logs zu sammeln, verdächtige Aktivitäten automatisch zu erkennen, Sicherheitsvorfälle zu visualisieren und bestimmte Reaktionen zu automatisieren (hilfreich z.B. für Incident Response). Auf dem Screenshot ist auch zu sehen, dass 86 Komponenten zuerst noch konfiguriert werden müssen.
+
+<p align="center">
+  <img src="images/IngestData_EntraID_04.png" width="60%">
+  <br>
+  <em>Connectors Hub</em>
+</p>
+
+### Data Connectors verbinden und konfigurieren
+Über den Content Hub wurde die Lösung  Threat Intelligence installiert und anschliessend der Data Connector Microsoft Threat Intelligence geöffnet. Dieser Connector importiert sogenannte Indicators of Compromise (IOCs) aus Microsoft Defender Threat Intelligence in Microsoft Sentinel. Dazu gehören beispielsweise verdächtige IP-Adressen, Domains, URLs oder Datei-Hashes, die auf mögliche Cyberangriffe hinweisen können. Damit können beispielsweise IPs, welche in den Logs auftreten, automatisch geprüft werden, ob diese bekanntlich schädlich sein können bzw. in Verbindung zu verdächtigen Aktivitäten stehen. Der Connector wurde über Connect aktiviert, um diese Bedrohungsindikatoren in Microsoft Sentinel verfügbar zu machen.
+
+<p align="center">
+  <img src="images/IngestData_MSThreatIntelligence_05.png" width="60%">
+  <br>
+  <em>Microsoft Threat Intelligence</em>
+</p>
+
+Nach der Aktivierung wurde der Status des Data Connectors überprüft. Dieser zeigt Connected an, womit die Verbindung erfolgreich hergestellt wurde. Ausserdem wurden bereits 4 Threat Intelligence Indicators empfangen und im Log Analytics Workspace gespeichert. Dies bestätigt, dass die Datenübertragung funktioniert.
+
+<p align="center">
+  <img src="images/IngestData_MTI_Activated_06.png" width="60%">
+  <br>
+  <em>Microsoft Threat Intelligence</em>
+</p>
 
 ## Detect
 
