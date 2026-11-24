@@ -7,8 +7,10 @@
    - [Content Hub Lösungen installieren](#content-hub-lösungen-installieren)
    - [Data Connectors verbinden und konfigurieren](#data-connectors-verbinden-und-konfigurieren)
 3. [Detect](#detect)
+   - [Analytics Rules aktivieren](#analytics-rules-aktivieren)
 4. [Investigate](#investigate)
 5. [Fazit](#fazit)
+
 
 
 # Microsoft Sentinel Lab
@@ -75,6 +77,57 @@ Nach der Aktivierung wurde der Status des Data Connectors überprüft. Dieser ze
 </p>
 
 ## Detect
+Nachdem die Datenquellen angebunden wurden und Logdaten in Microsoft Sentinel gesammelt werden, können diese zur Threat Detection genutzt werden. Da eine manuelle Analyse grosser Logmengen kaum möglich ist, verwendet Sentinel sogenannte Analytics Rules, welche die Daten automatisch auf verdächtige Aktivitäten und bekannte Angriffsmuster überprüfen. Werden bestimmte Bedingungen erfüllt, erzeugt Sentinel Alerts, aus denen Incidents erstellt werden können. Diese können anschliessend von SOC-Analysten untersucht und bearbeitet werden. Für die Erstellung solcher Regeln stellt Microsoft bereits vordefinierte Rule Templates zur Verfügung, die an die eigene Umgebung angepasst und aktiviert werden können.
+
+### Analytics Rules aktivieren
+Unter Configuration → Analytics → Rule templates stehen verschiedene vordefinierte Erkennungsregeln zur Verfügung (der jeweilige Connector muss im Content Hub zuerst noch installiert werden). Diese können anhand ihrer Schweregrade, Datenquellen und MITRE-ATT&CK-Techniken ausgewählt und für die eigene Umgebung aktiviert werden.
+
+<p align="center">
+  <img src="images/Detect_Analytics_RuleTemplates_07.png" width="60%">
+  <br>
+  <em>Rule Templates</em>
+</p>
+
+Für dieses Lab wurde die Vorlage Local Admin Group Changes ausgewählt, welche Änderungen an der lokalen Administratorengruppe erkennt. Die Regel hat den Schweregrad High und ist der MITRE-ATT&CK-Technik T1098 – Account Manipulation zugeordnet.
+
+
+<p align="center">
+  <img src="images/Detect_CreateRuleFromTemplate_08.png" width="60%">
+  <br>
+  <em>Create Rule from Template</em>
+</p>
+
+Unter Set rule logic wird die Erkennungslogik mithilfe einer KQL-Abfrage definiert. Die Regel wurde so konfiguriert, dass sie jede Stunde die Logs der letzten Stunde überprüft und einen Alert erzeugt, sobald mindestens ein passendes Ereignis gefunden wird.
+
+<p align="center">
+  <img src="images/Detect_CreateRule_SetRuleLogic_09.png" width="60%">
+  <br>
+  <em>Set Rule Logic</em>
+</p>
+
+Unter Automated response können Automatisierungsregeln erstellt werden, um bei erkannten Sicherheitsvorfällen automatisch bestimmte Aktionen auszuführen, beispielsweise Playbooks starten oder Incidents zuweisen. In diesem Lab wurde hier noch keine Automatisierung konfiguriert.
+
+<p align="center">
+  <img src="images/Detect_CreateRule_AutomatedResponse_10.png" width="60%">
+  <br>
+  <em>Autoamted Response</em>
+</p>
+
+Nach der Erstellung erscheint die Regel Local Admin Group Changes unter Active rules mit dem Status Enabled. Insgesamt sind zwei aktive Analytics Rules vorhanden, die beide mit dem Schweregrad High eingestuft sind.
+
+<p align="center">
+  <img src="images/Detect_ActiveRules_11.png" width="60%">
+  <br>
+  <em>Active Rules</em>
+</p>
+
+In den Regeleinstellungen lässt sich überprüfen, ob die Analytics Rule korrekt aktiviert und konfiguriert wurde. Die Regel Local Admin Group Changes wird jede Stunde ausgeführt, analysiert die Logs der letzten Stunde und erzeugt einen Alert, sobald die KQL-Abfrage mehr als null Ergebnisse liefert. Die Regel kann über Edit jederzeit angepasst und verfeinert werden. 
+
+<p align="center">
+  <img src="images/Detect_ActiveRules_Details_12.png" width="60%">
+  <br>
+  <em>Active Rules Detials</em>
+</p>
 
 ## Investigate
 
