@@ -130,5 +130,61 @@ In den Regeleinstellungen lässt sich überprüfen, ob die Analytics Rule korrek
 </p>
 
 ## Investigate
+Unter Threat Management > Incidents werden alle erkannten Sicherheitsvorfälle angezeigt. Für dieses Lab wurde der Incident Solorigate Network Beacon mit dem Schweregrad High ausgewählt und dem eigenen Benutzer zur Bearbeitung zugewiesen.
+
+<p align="center">
+  <img src="images/Investigate_TakeOwnership_13.png" width="60%">
+  <br>
+  <em>Take Ownership</em>
+</p>
+
+Im Activity Log werden sämtliche Änderungen am Incident protokolliert. Hier ist ersichtlich, dass der Incident dem eigenen Benutzer zugewiesen und der Status von New auf Active geändert wurde.
+
+<p align="center">
+  <img src="images/Investigate_ActivityLog_14.png" width="60%">
+  <br>
+  <em>Activity Log</em>
+</p>
+
+In der Incident Timeline werden die Alerts angezeigt, die zum Sicherheitsvorfall gehören. Der Alert Solorigate Network Beacon enthält unter anderem Informationen zu den betroffenen Entitäten sowie die Zuordnung zur MITRE-ATT&CK-Taktik Command and Control.
+
+<p align="center">
+  <img src="images/Ivestigate_IncidentDetails_15.png" width="60%">
+  <br>
+  <em>Activity Log</em>
+</p>
+
+Unter Entities werden die mit dem Incident verbundenen Entitäten angezeigt, darunter die IP-Adresse 17.81.146.1 und die Domain avsvmcloud.com. Für die IP-Adresse können zusätzliche Informationen wie Geolocation, Organisation und bisherige Aktivitäten eingesehen werden.
+
+<p align="center">
+  <img src="images/Investigate_Entities_16.png" width="60%">
+  <br>
+  <em>Incident Entities</em>
+</p>
+
+Über Link to LA können die zugrunde liegenden Logdaten des Alerts im Log Analytics Workspace untersucht werden. In diesem Fall ist ein DNS-Ereignis aus Cisco Umbrella ersichtlich, das die Domain avsvmcloud.com und die IP-Adresse 17.81.146.1 enthält.
+
+<p align="center">
+  <img src="images/Investigate_LinkToLA_17.png" width="60%">
+  <br>
+  <em>Link to Log Analytics</em>
+</p>
+
+Über Incident Actions stehen verschiedene Möglichkeiten zur automatisierten Bearbeitung von Sicherheitsvorfällen zur Verfügung. Beispielsweise können Playbooks ausgeführt oder Automation Rules erstellt werden, um wiederkehrende Incident-Response-Aufgaben zu automatisieren.
+
+<p align="center">
+  <img src="images/Investigate_IncidentActions_18.png" width="60%">
+  <br>
+  <em>Incident Actions</em>
+</p>
+
+Da der Incident weitere Untersuchungen benötigt, wurde eine Aufgabe mit dem Titel Threat Hunting erstellt. Diese dokumentiert, dass ein SOC Tier-2 Analyst die betroffene IP-Adresse genauer analysieren soll, um mögliche Bedrohungen zu identifizieren. Anschliessend wurde der Incident an einen SOC-Level 2 Analyst zugewiesen.
+
+<p align="center">
+  <img src="images/Investigate_Tasks_19.png" width="60%">
+  <br>
+  <em>Create Task</em>
+</p>
 
 ## Fazit
+Durch die zentrale Sammlung und Analyse von Logdaten erhalten Unternehmen und Security Teams einen besseren Überblick über sicherheitsrelevante Aktivitäten in ihrer IT-Umgebung. Mithilfe von Data Connectors, Threat Intelligence und Analytics Rules können potenzielle Bedrohungen frühzeitig erkannt und automatisch Alerts und Incidents erstellt werden. Die Incident-Management-Funktionen ermöglichen es SOC-Analysten, Sicherheitsvorfälle strukturiert zu untersuchen, zu dokumentieren und bei Bedarf an andere Teams zu eskalieren. Zusätzlich können durch Playbooks und Automatisierungsregeln wiederkehrende Aufgaben automatisiert und Reaktionszeiten verkürzt werden. Insgesamt hilft Microsoft Sentinel Unternehmen dabei, Sicherheitsbedrohungen effizienter zu erkennen, schneller darauf zu reagieren und ihre IT-Sicherheit nachhaltig zu verbessern.
